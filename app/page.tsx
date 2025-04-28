@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { getPublishedPosts, getTags } from '@/lib/notion';
 
 interface HomeProps {
-  searchParams: { tag?: string };
+  searchParams: Promise<{ tag?: string }>;
 }
 
 export default async function Home({ searchParams }: HomeProps) {
