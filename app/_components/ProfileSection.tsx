@@ -24,7 +24,7 @@ const socialLinks = [
 
 export default function ProfileSection() {
   return (
-    <Card>
+    <Card className="shadow-none">
       <CardContent className="pt-6">
         <div className="space-y-4">
           <div className="flex justify-center">
@@ -56,7 +56,7 @@ export default function ProfileSection() {
             ))}
           </div>
 
-          <p className="bg-primary/10 rounded p-2 text-center text-sm">안녕하세요 ✨</p>
+          <p className="rounded p-2 text-center text-sm">안녕하세요 ✨</p>
         </div>
       </CardContent>
     </Card>

@@ -9,17 +9,17 @@ interface TagSectionProps {
 
 export default function TagSection({ tags, selectedTag }: TagSectionProps) {
   return (
-    <Card>
+    <Card className="shadow-none">
       <CardHeader>
         <CardTitle>태그목록</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-1.5">
           {tags.map((tag) => (
             <Link href={`?tag=${tag.name}`} key={tag.name}>
               <div
                 className={cn(
-                  'hover:bg-muted-foreground/10 text-muted-foreground flex items-center justify-between rounded-md p-1.5 text-sm transition-colors',
+                  'hover:bg-muted-foreground/10 text-muted-foreground flex items-center justify-between rounded-md p-3 py-2 text-sm transition-colors',
                   selectedTag === tag.name && 'bg-muted-foreground/10 text-foreground font-medium'
                 )}
               >

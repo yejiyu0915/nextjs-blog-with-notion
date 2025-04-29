@@ -1,10 +1,10 @@
 import Link from 'next/link';
 export default function Header() {
   return (
-    <header className="bg-background sticky top-0 z-50 border-b">
+    <header className="bg-background/40 sticky top-0 z-50 border-b backdrop-blur-sm">
       <div className="container flex h-[var(--header-height)] items-center px-4">
         <Link href="/" className="text-xl font-semibold">
-          <span className="font-bold">예지의 블로그</span>
+          <span className="font-bold">✨ 예지의 블로그</span>
         </Link>
         <nav className="ml-auto flex items-center gap-4">
           <Link href="/" className="hover:text-primary font-medium">
