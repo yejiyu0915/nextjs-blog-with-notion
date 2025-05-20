@@ -17,7 +17,7 @@ export interface PostFormData {
 
 export interface PostFormState {
   message: string;
-  error: {
+  errors?: {
     title?: string[];
     tag?: string[];
     content?: string[];
@@ -46,7 +46,6 @@ export async function createPostAction(prevState: PostFormState, formData: FormD
       formData: rawFormData,
     };
   }
-
   try {
     const { title, tag, content } = validatedFields.data;
 
@@ -60,7 +59,7 @@ export async function createPostAction(prevState: PostFormState, formData: FormD
       message: '블로그 포스트가 성공적으로 생성되었습니다.',
     };
   } catch (err) {
-    console.error(err);
+    console.log(err);
     return {
       message: '블로그 포스트 생성에 실패했습니다.',
       formData: rawFormData,

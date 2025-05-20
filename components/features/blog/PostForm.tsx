@@ -10,15 +10,6 @@ import { useActionState } from 'react';
 import { createPostAction } from '@/app/actions/blog';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-interface PostFormState {
-  message: string;
-  errors?: {
-    title?: string[];
-    tag?: string[];
-    content?: string[];
-  };
-}
-
 export function PostForm() {
   const [state, formAction, isPending] = useActionState(createPostAction, {
     message: '',
@@ -40,6 +31,7 @@ export function PostForm() {
               <AlertDescription>{state.message}</AlertDescription>
             </Alert>
           )}
+
           {/* 제목 입력 */}
           <div className="mb-6 space-y-2">
             <Label htmlFor="title">제목</Label>
@@ -57,7 +49,7 @@ export function PostForm() {
 
           {/* 태그 입력 */}
           <div className="mb-6 space-y-2">
-            <Label htmlFor="tags">태그</Label>
+            <Label htmlFor="tag">태그</Label>
             <Input
               id="tag"
               name="tag"
