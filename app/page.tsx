@@ -4,9 +4,9 @@ import { getTags, getPublishedPosts } from '@/lib/notion';
 import HeaderSection from '@/app/_components/HeaderSection';
 import { Suspense } from 'react';
 import TagSectionClient from '@/app/_components/TagSection.client';
-import PostListSuspense from '@/components/features/blog/PostListSuspense';
 import TagSectionSkeleton from '@/app/_components/TagSectionSkeleton';
 import PostListSkeleton from '@/components/features/blog/PostListSkeleton';
+import PostListSuspense from '@/components/features/blog/PostListSuspense';
 interface HomeProps {
   searchParams: Promise<{ tag?: string; sort?: string }>;
 }
