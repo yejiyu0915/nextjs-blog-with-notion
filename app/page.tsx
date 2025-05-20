@@ -4,9 +4,8 @@ import { getTags, getPublishedPosts } from '@/lib/notion';
 import HeaderSection from '@/app/_components/HeaderSection';
 import { Suspense } from 'react';
 import TagSectionClient from '@/app/_components/TagSection.client';
-import PostListSuspense from '@/components/features/blog/PostListSuspense';
 import TagSectionSkeleton from '@/app/_components/TagSectionSkeleton';
-import PostListSkeleton from '@/components/features/blog/PostListSkeleton';
+import PostList from '@/components/features/blog/PostList';
 interface HomeProps {
   searchParams: Promise<{ tag?: string; sort?: string }>;
 }
@@ -17,7 +16,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const selectedSort = sort || 'latest';
 
   const tags = getTags();
-  const postsPromise = getPublishedPosts({ tag: selectedTag, sort: selectedSort });
+  const postsPromise = await getPublishedPosts({ tag: selectedTag, sort: selectedSort });
 
   return (
     <div className="container py-8">
@@ -32,9 +31,10 @@ export default async function Home({ searchParams }: HomeProps) {
           {/* 섹션 제목 */}
           <HeaderSection selectedTag={selectedTag} />
           {/* 블로그 카드 그리드 */}
-          <Suspense fallback={<PostListSkeleton />}>
+          {/* <Suspense fallback={<PostListSkeleton />}>
             <PostListSuspense postsPromise={postsPromise} />
-          </Suspense>
+          </Suspense> */}
+          <PostList posts={postsPromise.posts} />
         </div>
         {/* 우측 사이드바 */}
         <aside className="flex flex-col gap-6">
