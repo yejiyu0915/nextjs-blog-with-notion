@@ -3,7 +3,7 @@
 import { createPost } from '@/lib/notion';
 import { z } from 'zod';
 import { revalidateTag } from 'next/cache';
-// import { redirect } from 'next/navigation';
+
 const postSchema = z.object({
   title: z.string().min(1, { message: '제목을 입력해주세요.' }),
   tag: z.string().min(1, { message: '태그를 선택해주세요.' }),
@@ -61,7 +61,8 @@ export async function createPostAction(prevState: PostFormState, formData: FormD
       success: true,
       message: '블로그 포스트가 성공적으로 생성되었습니다.',
     };
-  } catch {
+  } catch (err) {
+    console.error(err);
     return {
       message: '블로그 포스트 생성에 실패했습니다.',
       formData: rawFormData,

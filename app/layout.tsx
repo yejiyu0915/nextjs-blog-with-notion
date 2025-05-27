@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${pretendard.variable} scroll-smooth`}>
+    <html lang="ko" className={`${pretendard.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="antialiased">
         <Providers>
           <div className="flex min-h-screen flex-col">
