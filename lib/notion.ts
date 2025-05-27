@@ -79,6 +79,12 @@ export const getPostBySlug = async (
     },
   });
 
+  if (!response.results[0]) {
+    return {
+      markdown: '',
+      post: null,
+    };
+  }
   const mdBlocks = await n2m.pageToMarkdown(response.results[0].id);
   const { parent } = n2m.toMarkdownString(mdBlocks);
 
