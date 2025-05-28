@@ -7,6 +7,15 @@ import TagSectionClient from '@/app/_components/TagSection.client';
 import TagSectionSkeleton from '@/app/_components/TagSectionSkeleton';
 import PostListSkeleton from '@/components/features/blog/PostListSkeleton';
 import PostListSuspense from '@/components/features/blog/PostListSuspense';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '홈',
+  description: '프론트엔드 개발과 관련된 다양한 지식과 경험을 공유하는 블로그입니다.',
+  alternates: {
+    canonical: '/',
+  },
+};
 interface HomeProps {
   searchParams: Promise<{ tag?: string; sort?: string }>;
 }
