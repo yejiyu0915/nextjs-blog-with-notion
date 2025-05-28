@@ -176,10 +176,10 @@ export const getPublishedPosts = unstable_cache(
       };
     }
   },
-  ['posts'],
+  undefined,
   {
     tags: ['posts'],
-    revalidate: 60, // 1분마다 캐시 갱신
+    // revalidate: 60, // 1분마다 캐시 갱신
   }
 );
 

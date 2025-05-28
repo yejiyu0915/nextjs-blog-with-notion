@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  other: {
+    google: 'notranslate',
+  },
 };
 
 export default function RootLayout({
