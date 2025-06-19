@@ -14,23 +14,27 @@ export function ProfileImage() {
 
   if (!mounted) {
     return (
-      <Image
-        src="/images/profile-light.jpg"
-        alt="J_Wisdom"
-        width={144}
-        height={144}
-        className="object-cover"
-      />
+      <div className="relative h-[144px] w-[144px]">
+        <Image
+          src="/images/profile-light.jpg"
+          alt="J_Wisdom"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
     );
   }
 
   return (
-    <Image
-      src={theme === 'dark' ? '/images/profile-dark.jpg' : '/images/profile-light.jpg'}
-      alt="J_Wisdom"
-      width={144}
-      height={144}
-      className="object-cover"
-    />
+    <div className="relative h-[144px] w-[144px]">
+      <Image
+        src={theme === 'dark' ? '/images/profile-dark.jpg' : '/images/profile-light.jpg'}
+        alt="J_Wisdom"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
   );
 }
